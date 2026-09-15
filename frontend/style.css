@@ -1,10 +1,10 @@
-:root{
+
+:root {
   --bg: #4daa57; 
   --fg: #313638; 
   --accent: #ffeaae;
-  --border: #313638; 
+  --border: #ffeaae; 
 }
-
 
 body {
   font-family: system-ui, sans-serif;
