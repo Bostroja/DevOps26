@@ -1,5 +1,15 @@
+
+:root {
+  --bg: #4daa57; 
+  --fg: #313638; 
+  --accent: #ffeaae;
+  --border: #ffeaae; 
+}
+
 body {
   font-family: system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--fg);
   max-width: 32rem;
   margin: 2rem auto;
   padding: 0 1rem;
@@ -17,6 +27,7 @@ input[type="text"] {
 }
 
 button {
+  background: var(--accent);
   padding: 0.5rem 1rem;
 }
 
@@ -30,5 +41,5 @@ li {
   justify-content: space-between;
   align-items: center;
   padding: 0.5rem;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid var(--border);
 }
