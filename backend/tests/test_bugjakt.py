@@ -17,3 +17,14 @@ client = TestClient(app)
 
 
 # Skriv ert test här:
+
+def test_bread() -> None:
+    response = client.post("/api/items", json={"text": "bread"})
+    assert response.status_code == 201
+    created = response.json()
+    assert created["text"] == "bread"
+    assert "id" in created
+
+    response = client.get("/api/items")
+    assert response.status_code == 200
+    assert any(item["id"] == created["id"] for item in response.json())
