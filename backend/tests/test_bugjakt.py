@@ -18,13 +18,14 @@ client = TestClient(app)
 
 # Skriv ert test här:
 
-def test_bread() -> None:
-    response = client.post("/api/items", json={"text": "bread"})
-    assert response.status_code == 201
-    created = response.json()
-    assert created["text"] == "bread"
-    assert "id" in created
+def test_stats_after_deleting_bread() -> None:
+    client.post("/api/items", json={"text": "milk"})
+    bread = client.post("/api/items", json={"text": "bread"}).json()
 
-    response = client.get("/api/items")
-    assert response.status_code == 200
-    assert any(item["id"] == created["id"] for item in response.json())
+    response = client.delete(f"/api/items/{bread['id']}")
+    assert response.status_code == 204
+
+    response = client.get("/api/items/stats")
+    assert response.json() == {"count": 1, "total_characters": 4}
+
+

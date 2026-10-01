@@ -142,13 +142,20 @@ Allt ni behöver finns att kopiera i `backend/tests/test_main.py`:
    nedan). Grönt? Då gjorde testet inte samma sak som användaren — läs
    felrapporten igen.
 2. **Följ spåret från skärmen in i koden.** Summeringsraden ritas i
-   `frontend/app.js` — vilken adress hämtar den sina tal från? Hitta
-   funktionen i `backend/app/main.py` som svarar på den adressen. Ställ
-   sedan samma fråga om **vart och ett** av de två talen: var räknas det
+   `frontend/app.js` — vilken adress hämtar den sina tal från? 
+   Svar: const response = await fetch("/api/items/stats");
+   Hitta
+   funktionen i `backend/app/main.py` som svarar på den adressen.
+  Svar: @app.get("/api/items/stats") && class Stats(BaseModel):
+    count: int
+    total_characters: int
+  
+  Ställ sedan samma fråga om **vart och ett** av de två talen: var räknas det
    ut, och vilka operationer i filen påverkar det? Ett av talen stämmer
    alltid. Varför gör det andra inte det?
 3. **Fixa.** Gör den minsta ändring som får ert test att bli grönt. Kör
    sedan hela sviten — inget annat får ha gått sönder.
+   Svar: Två rader fanns i post men inte i delete så jag satte till motsvarande linje i delete     global _total_characters & _total_characters -= len(item.text)
 
 ## Testdesign – idéer när ni kör fast
 
@@ -169,12 +176,16 @@ test ni skriver:
 Förklara följande i `inlamning/m4-tests.md`:
 
 1. Testet som failar (klistra in output från `pytest`).
+![alt text](image-7.png)
 2. En förklaring: **varför missade code review, den gröna testsviten och
    den mergade pull requesten den här buggen?** Tre skyddsnät släppte
    igenom den — vad tittade vart och ett av dem på, och vad tittade de inte
    på?
+   Problemet var inte aldrig sökt efter, och kaverin var lat i testet av den nya funktionen
 3. Er fix, och samma test grönt.
+Två rader fanns i post men inte i delete så jag satte till motsvarande linje i delete     global _total_characters & _total_characters -= len(item.text)
 4. Vad hade behövts för att den här buggen aldrig skulle ha nått main?
+Bättre test som faktiskt testar med exempel som "milk" & "bread", samt bättre skrivet vad man vill att funktionen ska lyckas med så andra parten testar ordentligt vad den godkänner
 
 **AI-verktyg:** samma regel som i M2 — Claude Code, Codex och Gemini i
 devcontainern får hjälpa er med pytest-**syntaxen**. Men punkt 2 och 4
