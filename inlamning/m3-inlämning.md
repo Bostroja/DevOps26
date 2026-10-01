@@ -52,15 +52,15 @@ GitHub-konto som äger codespacen.
 gissningar (inlamning/m3-container.md)!** innan ni läser vidare eller kör något:
 
 1. Vilken rad avgör Python-versionen imagen bygger på?
-Svar: FROM python:3.12-slim
+Svar: Första raden
 2. `COPY requirements.txt .` och `RUN pip install ...` kommer FÖRE `COPY
    app ./app`. Varför i den ordningen, och inte tvärtom? (Ledtråd:
    föreläsningens cache-slide.)
-om det körs åt andra hållet kommer install inte ta nya ändringarna.
+Svar:om det är svängt åt andra hållet skulle pip install inte kunna runna
 3. `EXPOSE 8000` — tror ni den raden gör porten nåbar utanför containern,
    så att `curl` i er terminal når den? Testa gissningen i nästa
    deluppgift.
-
+Svar:det är inte den raden som gör den nåbar, det finns i docker.compose filen 
 
 Raden `RUN apt-get update && apt-get -y upgrade ...` högst upp är
 OS-patchning av basimagen — den hör till säkerhetsspåret (Spår C) och ni kan
@@ -96,12 +96,15 @@ Dockerfilen.
 Öppna `frontend/Dockerfile` — mycket kortare. Fundera:
 
 - Varför finns ingen `RUN`-rad här, till skillnad från backend?
+Svar:Backend sköter det viktiga körande. Frontend aktiverar bara ui:n och sidan
 - Varför inget eget `CMD`? (Basimagen `nginxinc/nginx-unprivileged:alpine`
   har redan ett.)
+Svar:svaret i parentes överom
 - `nginx.conf` kopieras in som webbserverns konfiguration — öppna filen,
   hitta raden som pratar med `backend:8000`. Var kommer namnet `backend`
   ifrån? (Svar i steg 3 — det är inget magiskt, det är compose-filens
   tjänstenamn.)
+Svar:Svaret i parentesen igen.
 - Varför `nginx-unprivileged` och inte vanliga `nginx`? Standard-imagen
   kör som `root` inuti containern och lyssnar på port 80. Det fungerar i
   er utvecklingsmiljö (codespace eller lokalt) men kraschar direkt på
@@ -112,6 +115,7 @@ Dockerfilen.
   är byggt för att köras som vem som helst och lyssnar därför på 8080
   (portar under 1024 kräver root). Välj basimage efter var koden ska
   köra, inte bara efter vad som råkar funka lokalt.
+Svar: i parentesen en tredje gång.
 
 ## Steg 3 – Kör hela appen med docker compose
 
@@ -136,6 +140,7 @@ fungerar eftersom Compose ger varje tjänst sitt **eget tjänstenamn** som
 DNS-namn på ett internt nätverk. Det är svaret på steg 2:s fråga.
 
 > 📸 **Kom ihåg skärmdump till inlämningen:** appen i webbläsaren på port 8080 (i Codespace: den vidarebefordrade adressen) och terminalen där `docker compose up` visar båda tjänsterna igång.
+![alt text](image-4.png)
 
 Stäng ner när ni är klara att gå vidare (images behålls, bara containers tas bort):
 
@@ -229,6 +234,8 @@ rm -rf backend/app/__pycache__
 ```
 
 > 📸 **Kom ihåg skärmdump till inlämningen:** terminalen med båda `find`-körningarna — `/app/app/__pycache__` i utskriften före `.dockerignore`, tom utskrift efter.
+Backend: ![alt text](image-6.png)
+![alt text](image-5.png)
 
 Frontend-Dockerfilen kopierar bara namngivna filer, så där kan ingen
 skräpfil hamna i imagen.
@@ -283,35 +290,19 @@ den workflown själva och äger den.
 
 > 📸 **Kom ihåg skärmdump till inlämningen:** **Versions**-fliken för ett av paketen, med er egen `:latest`-push och dess färska tidsstämpel synlig.
 
-## Steg 6 – Lämna in beviset och tagga milstolpen
-
-**Bevisa det osynliga:** er `docker compose up`-körning och era
-paket på GHCR syns inte i repot. Ni har nu 4 skärmdumpar från steg 1, 3,
-4 och 5 — lägg dem i `inlamning/` och skriv några meningar per skärmdump
-i `inlamning/m3-container.md`, tillsammans med gissningarna från steg 1
-— formatet visas i `inlamning/m0-exempel.md`.
-
-`main` är skyddad sedan M2, så även beviset går in via en PR:
-
-```bash
-git switch main && git pull
-git switch -c m3-inlamning
-git add inlamning/
-git commit -m "docs: add M3 proof"
-git push -u origin m3-inlamning
-```
-
-Öppna PR:en, granska (par: buddyn / solo: radkommentar), merga,
-**Delete branch**.
-
-**Kontrollera på GitHub** att `inlamning/m3-container.md` ligger på `main` —
-tagga då:
+## Steg 6 – Tagga milstolpen
 
 ```bash
 git switch main && git pull
 git tag m3-container
 git push origin m3-container
 ```
+
+**Bevisa det osynliga:** er `docker compose up`-körning och era
+paket på GHCR syns inte i repot. Ni har nu 4 skärmdumpar från steg 1, 3,
+4 och 5 — lägg dem i `inlamning/` och skriv några meningar per skärmdump
+i `inlamning/m3-container.md`, tillsammans med gissningarna från steg 1,
+och committa — formatet visas i `inlamning/m0-exempel.md`.
 
 ## Verifiera
 
@@ -326,7 +317,7 @@ Klart betyder att allt det här stämmer:
 - [ ] Er egen `:latest`-push syns med färsk tidsstämpel under **Versions**
       för båda paketen under **Packages** på GitHub.
 - [ ] Taggen `m3-container` syns under **Tags**.
-- [ ] Det osynliga arbetet är dokumenterat i `inlamning/m3-container.md`, mergat till `main`.
+- [ ] Det osynliga arbetet är dokumenterat i `inlamning/m3-container.md`.
 
 ## Vanliga problem
 
