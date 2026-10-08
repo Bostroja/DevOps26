@@ -153,14 +153,14 @@ I Actions-fliken ser ni också en röd `Deploy to VM` efter varje
 och M5 (den blir grön i M9). Bara `Publish images` ska vara grön i dag.
 
 > 📸 **Kom ihåg skärmdump till inlämningen:** körningens Summary-sida — båda jobben gröna och avsnittet *Taggar för det här bygget* synligt.
-
+![alt text](image-12.png)
 **Bevisa att `workflow_dispatch` fungerar också:** knappen **Run
 workflow** ska nu finnas uppe till höger på workflow-sidan (fanns inte
 innan er ändring). Kör den manuellt en gång, välj `main`, se en ny
 körning starta utan att ni öppnat en PR.
 
 > 📸 **Kom ihåg skärmdump till inlämningen:** listan över körningar för **Publish images** med er manuellt startade körning (trigger: `workflow_dispatch`).
-
+![alt text](image-13.png)
 ## Steg 4 – Gör paketen publika
 
 Precis som M3:s Vanliga problem och README:s "Paket-synlighet"-avsnitt
@@ -178,7 +178,7 @@ Står ett paket redan på **Public** (ni kanske gjorde det redan i M3)? Då
 är steget klart för det paketet — ta skärmdumpen ändå.
 
 > 📸 **Kom ihåg skärmdump till inlämningen:** paketsidan för ett av paketen med **Public** synligt.
-
+![alt text](image-14.png)
 ## Steg 5 – Pull en image utan inloggning
 
 Logga **ut** ur GHCR först, så ni verkligen testar den publika
@@ -209,7 +209,8 @@ docker rm -f m6-pull-test
 Svaret ska vara `{"status":"ok"}`.
 
 > 📸 **Kom ihåg skärmdump till inlämningen:** terminalen med `docker logout`, `docker pull` som lyckas utan inloggning och `curl`-svaret från `/api/health`.
-
+![alt text](image-15.png)
+![alt text](image-16.png)
 ## Steg 6 – Secrets-övning: se maskeringen på riktigt
 
 **Läs det här helt innan ni börjar.** Övningen är säker av tre skäl,
@@ -261,7 +262,7 @@ sin sammanfattning — taggarna som listas där är de bygget SKULLE ha
 fått, inte taggar som faktiskt publicerades.)
 
 > 📸 **Kom ihåg skärmdump till inlämningen:** loggen för steget **TEMP - do not merge** med `***` i stället för tokenvärdet.
-
+![alt text](image-17.png)
 **Städa upp direkt efteråt — detta får aldrig mergas:**
 
 ```bash
