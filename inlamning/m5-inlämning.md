@@ -63,6 +63,9 @@ namnet. Kolla er senaste mergade pull request, bekräfta att checken
 faktiskt kört där, och försök igen — eller skriv in namnet exakt för hand.
 
 > 📸 **Kom ihåg skärmdump till inlämningen:** inställningssidan för regeln, med **Require status checks to pass**, `Lint and test backend` i listan och **Enforcement status: Active** synligt.
+![alt text](image-8.png) 
+![alt text](image-9.png)
+Ändrade inställningar enligt instruktionerna.
 
 ## Steg 2 – Bevisa att spärren fungerar: en medvetet röd PR
 
@@ -114,6 +117,9 @@ tom. **Par:** buddyn lämnar en radkommentar på `import json`-raden.
 radnumret → **Review changes** → **Comment**).
 
 > 📸 **Kom ihåg skärmdump till inlämningen:** PR:en med den röda checken och den grå merge-knappen (*Merging is blocked*). Det här är hela poängen med dagens milstolpe — och den går inte att ta i efterhand.
+![alt text](image-10.png)
+Gjorde det och fick lätt rätt svar.
+
 
 ## Steg 3 – Fixa och merga grönt
 
@@ -195,6 +201,8 @@ I Actions-fliken ser ni också `Publish images` och en röd `Deploy to VM`
 från er merge — samma väntade röda som i M1 steg 4 (den blir grön i M9).
 
 > 📸 **Kom ihåg skärmdump till inlämningen:** Actions-fliken med er manuellt startade CI-körning (trigger: `workflow_dispatch`).
+![alt text](image-11.png) Vi körde checken 2 gånger för säkerhetsskull.
+
 
 ## Steg 5 – Lämna in beviset och tagga milstolpen
 
