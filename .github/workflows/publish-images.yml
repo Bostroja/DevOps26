@@ -45,6 +45,7 @@ jobs:
             ghcr.io/${{ steps.owner.outputs.owner }}/template-app-backend:${{ github.sha }}
           labels: |
             org.opencontainers.image.source=https://github.com/${{ github.repository }}
+     #Tillsätter att vi har en frontend, så är det backend som är den enda bilden som publiceras. Därför är det backend som får en länk i summaryn.
       - name: Record image tags
         run: |
           {
