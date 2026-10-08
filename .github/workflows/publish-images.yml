@@ -45,13 +45,14 @@ jobs:
             ghcr.io/${{ steps.owner.outputs.owner }}/template-app-backend:${{ github.sha }}
           labels: |
             org.opencontainers.image.source=https://github.com/${{ github.repository }}
+     #Tillsätter att vi har en frontend, så är det backend som är den enda bilden som publiceras. Därför är det backend som får en länk i summaryn.
       - name: Record image tags
-          run: |
-            {
-              echo "### Taggar för det här bygget"
-              echo "- \`ghcr.io/${{ steps.owner.outputs.owner }}/template-app-backend:latest\`"
-              echo "- \`ghcr.io/${{ steps.owner.outputs.owner }}/template-app-backend:${{ github.sha }}\`"
-            } >> "$GITHUB_STEP_SUMMARY"
+        run: |
+          {
+            echo "### Taggar för det här bygget"
+            echo "- \`ghcr.io/${{ steps.owner.outputs.owner }}/template-app-backend:latest\`"
+            echo "- \`ghcr.io/${{ steps.owner.outputs.owner }}/template-app-backend:${{ github.sha }}\`"
+          } >> "$GITHUB_STEP_SUMMARY"
 
   build-and-push-frontend:
     name: Build and push frontend image
@@ -81,11 +82,11 @@ jobs:
             ghcr.io/${{ steps.owner.outputs.owner }}/template-app-frontend:${{ github.sha }}
           labels: |
             org.opencontainers.image.source=https://github.com/${{ github.repository }}
-
+#Possible fix
       - name: Record image tags
-                  run: |
-                    {
-                      echo "### Taggar för det här bygget"
-                      echo "- \`ghcr.io/${{ steps.owner.outputs.owner }}/template-app-frontend:latest\`"
-                      echo "- \`ghcr.io/${{ steps.owner.outputs.owner }}/template-app-frontend:${{ github.sha }}\`"
-                    } >> "$GITHUB_STEP_SUMMARY"
+        run: |
+          {
+          echo "### Taggar för det här bygget"
+          echo "- \`ghcr.io/${{ steps.owner.outputs.owner }}/template-app-frontend:latest\`"
+          echo "- \`ghcr.io/${{ steps.owner.outputs.owner }}/template-app-frontend:${{ github.sha }}\`"
+          } >> "$GITHUB_STEP_SUMMARY"
