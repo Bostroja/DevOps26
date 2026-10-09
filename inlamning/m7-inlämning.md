@@ -146,6 +146,7 @@ den uppladdade nyckeln i listan med kolumnerna Name, Type och
 Fingerprint](assets/m7-keypairs.png)
 
 > 📸 **Kom ihåg skärmdump till inlämningen:** Key Pairs-listan med er nyckel (båda, i par), **Type** `ssh` och **Fingerprint** synliga.
+![alt text](image-18.png)
 
 **Kom ihåg:** keypair-valet i Horizon injiceras bara vid VM:ens **start**
 och går inte att ändra i efterhand — men det gäller bara den metadatan,
@@ -279,6 +280,7 @@ floating IP kopplas till den.
    (`192.168.X.Y`) och den publika floating-adressen.
 
 > 📸 **Kom ihåg skärmdump till inlämningen:** instansraden i **Compute → Instances** med **Active**, **Running** och båda adresserna (intern + floating IP).
+![alt text](image-19.png)
 
 Notera den publika IP:n, t.ex. `195.148.X.Y` — den behövs i alla
 följande steg. Blanda inte ihop den med den interna `192.168.X.Y`, som
@@ -443,9 +445,9 @@ webbläsare — nu ska ni se själva notes-appen. (Provar ni `/api/health` i
 webbläsaren ser ni bara JSON-svaret — det är väntat.)
 
 > 📸 **Kom ihåg skärmdump till inlämningen:** terminalen i codespacen eller på er dator med `curl` mot floating-IP:n **utifrån** och svaret `{"status":"ok"}`.
-
+![alt text](image-20.png)
 > 📸 **Kom ihåg skärmdump till inlämningen:** webbläsaren med notes-appen på nip.io-URL:en, adressfältet synligt.
-
+![alt text](image-21.png)
 ## Steg 11 – Lämna in beviset och tagga milstolpen
 
 **Bevisa det osynliga:** i den här milstolpen syns nästan inget arbete i
