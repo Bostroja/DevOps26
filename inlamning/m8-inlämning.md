@@ -231,6 +231,7 @@ floating_ip och ssh_command — bilden är från före port-resursen
 tillkom, er körning visar åtta resurser](assets/m8-apply-output.png)
 
 > 📸 **Kom ihåg skärmdump till inlämningen:** slutet av `apply`-utskriften med `Apply complete! Resources: 8 added` och outputs-blocket (`floating_ip`, `app_url_nip_io`).
+![alt text](1.png)
 
 Cloud-init behöver en minut eller två efter att `apply` är klar innan
 appen svarar — det är inte ett fel om `curl` inte funkar direkt. Det ni
@@ -261,6 +262,7 @@ gången byggd från en fil i stället för handklick. (Provar ni
 `/api/health` i webbläsaren ser ni bara JSON-svaret — det är väntat.)
 
 > 📸 **Kom ihåg skärmdump till inlämningen:** webbläsaren med notes-appen på M8:s nip.io-URL (adressfältet synligt) — jämför adressen med `app_url_nip_io` i outputs.
+![alt text](signal-2026-10-20-17-51-37-033_002.png)
 
 ## Steg 6 – [KONSOL] Riv M7-VM:en och släpp dess floating IP
 
@@ -307,8 +309,9 @@ to Project inte längre gråad — M7:s adress är släppt och
 floating-IP-kvoten frigjord](assets/m8-teardown-floating-ips.png)
 
 > 📸 **Kom ihåg skärmdump till inlämningen:** er egen **Instances**-lista efteråt — bara M8-instansen kvar, M7:s borta.
-
+![alt text](signal-2026-10-20-17-54-11-169_003.png)
 > 📸 **Kom ihåg skärmdump till inlämningen:** er egen **Floating IPs**-lista efteråt — bara M8:s adress kvar. Bilderna ovan visar hur resultatet ska se ut.
+![alt text](signal-2026-10-20-17-54-11-169_002.png)
 
 Kontrollera att M8 fortfarande svarar (steg 5) efteråt — M7:s
 undanrivning påverkar inte er Terraform-miljö alls.
@@ -328,7 +331,7 @@ nätverket som planen läste i steg 4. **Öppna aldrig
 list`/`show` är rätt verktyg för att INSPEKTERA den.
 
 > 📸 **Kom ihåg skärmdump till inlämningen:** terminalen med `terraform state list` och alla nio raderna.
-
+![alt text](signal-2026-10-20-17-55-51-443_002.png)
 ## Steg 8 – [CLOUD] Rebuild-demot: riv VM:en, behåll IP:n
 
 **[CLOUD]**
@@ -368,6 +371,8 @@ Beviset som räknas är ERT eget par: klistra in BÅDA era egna
 `inlamning/m8-iac.md` — de ska vara identiska, ordagrant.
 
 > 📸 **Kom ihåg skärmdump till inlämningen:** terminalen med båda `terraform output floating_ip`-raderna, FÖRE och EFTER `destroy`/`apply` — samma adress.
+![alt text](signal-2026-10-20-18-03-15-729_002.png)
+![alt text](signal-2026-10-20-18-03-15-729_003.png)
 
 Verifiera igen med `curl` (steg 5) — appen ska svara på **samma** URL
 som innan, trots att VM:en precis byggdes om från noll. Den nya VM:en
