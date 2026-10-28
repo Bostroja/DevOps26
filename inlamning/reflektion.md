@@ -5,3 +5,18 @@ Den här kursen har varit en rolig men ändå tankeväckande upplevelse som jag 
 Gällande vad som skulle misslyckas utan automation är nog IaC:n eftersom man märkte osäkerheten och hur mycket vi hängde i copy och paste eftersom man inte ville misslyckas samt var väldigt rädd för att få detaljer fel. Via automation skulle man skippa en stor del av osäkerheten och kunna hoppa över det efter första användningen. Vi fick i slutändan ett fungerande projekt och det största problemet var den lilla mängden feedback terminalen gav och osäkerhet om man hade gjort rätt eller inte.
 
 Men tack för en lärorik kurs som sagt har jag redan fått användning och snabbare lärokurva på nya arbetsplatsen tack vare kursen.
+
+
+## Robins Reflektion
+
+Den här kursen har varit både tankeväckande samtidigt tankeväckande upplevelse, särskilt när det gäller DevOps och användning av Git. Kursen kändes definitivt annorlunda från de andra IT kurser vi haft tidigare i utbildningen eftersom vi inte behövde utveckla särskilt mycket ny kod själva, utan i stället kunde fokusera på idéerna bakom verktygen och bekanta med hur vi praktiskt kan använda dem.
+
+Under vårt arbete hade vi en tydlig kommunikation och ett bra samarbete som par. även om dokumentationen kunde ha varit bättre, då den stundvis blev aningen slarvig/otydlig (tidiga PR:s). I början hade vi en aning problem med Codespaces, vilket gjorde det svårt att få arbetet att löpa smidigt. Eftersom jag jobbar vid sidan om studierna och mitt arbetspar nyligen inlätt sin praktik kunde det vara stundvis svårt att hitta gemensamma tider att jobba på labben och tydligt dela in vem som gjorde vad. Detta underlättades dock med tiden när vi blev vanare med att jobba med Git som ett gemensamt arbetsbord.
+
+Precis som Jacob tycker jag att det största problemen vi mötte på skedde under M4, bugjakten. Vi hade problem med både Codespaces och GitHubs fördröjningar. I detta skede greppade jag inte helt och hållet hur codespacen fungerade. Vissa av kommandona fungerade på egen laptop, medan i skolans dator (obs med samma creds) fungerade de inte. 
+
+Efter M5 hade vi inga större problem. Vi började förstå Codespaces och de andra verktygen bättre. Vi kunde diskutera idéer och hjälpa varandra att hitta lösningar då vi lyckades hitta gemensamma tider som passade våra scheman. Mot slutet hade vi vissa problem med keypairs och var osäkra på instruktionerna för M7, bland annat om vi båda behövde skapa egna keypairs för att få tillgång till den sista versionen. Vi genomförde de sista labben tillsammans vid en dator och kom fram till att det fungerade bäst för oss.
+
+När det gäller vad som skulle vara svårast att genomföra utan automation skulle jag framför allt nämna IaC (Infrastructure as Code). Vi märkte hur osäkra vi kunde vara och hur mycket vi förlitade oss på att kopiera och klistra in kod. Detta är verkligen en sak som jag kommer att behöva hålla pulsen på. Med automation kan man minska denna osäkerhet och återanvända en fungerande konfiguration i stället för att behöva göra om samma arbete manuellt.
+
+Det största hindret var inte alltid själva uppgifterna, utan snarare den begränsade feedbacken från terminalen och osäkerheten kring om vi hade gjort rätt eller inte, vilket i sin tur ledde till att vi körde en HEL DEL kontroller..  Det visade hur viktigt det är med tydlig återkoppling och fungerande verktyg.
