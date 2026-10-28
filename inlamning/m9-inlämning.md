@@ -143,6 +143,7 @@ Notera vad som INTE händer: ingen av de två workflowarna kör testerna. De kö
 Actions-fliken, vyn "All workflows", med två gröna körningar i rätt ordning: PR-mergen till main triggade Publish images #9 (29s), som blev grön och startade Deploy to VM #9 (20s), också grön — det är kedjan ni ska känna igen
 
     📸 Kom ihåg skärmdump till inlämningen: er egen kedja från PR-mergen i steg 8 — Publish images grön, Deploy to VM grön, i den ordningen (bilden ovan visar hur den ska se ut).
+    4. ![actions/workflows](image-25.png)
 
 Steg 10 – Verifiera utifrån
 
@@ -154,6 +155,7 @@ curl http://<floating-ip>:8080/api/health
 Den första visar er nya text, den andra svarar {"status":"ok"} — det är /api/health-svaret M2 bad er låta vara, nu som driftstest. Öppna sedan nip.io-adressen i en webbläsare, samma form som M7 steg 10: http://<ip-med-bindestreck>.nip.io:8080/ — er text-ändring ska synas, utan att ni loggat in på VM:en för hand under själva deployen (bara i steg 3, som är engångsuppsättning, inte en del av flödet varje gång).
 
     📸 Kom ihåg skärmdump till inlämningen: webbläsaren på nip.io-URL:en med er ändring synlig — adressfältet med.
+    ![nip.io](image-26.png)
 
 Steg 11 – Lämna in beviset och tagga milstolpen
 
